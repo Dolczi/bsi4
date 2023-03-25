@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div>Jakub Dolecki</div>
+        <div class="calculator">
+            <input class="display" type="text" id="input" disabled>
+            <button class="equal" onclick="evaluateInput()">=</button>
+            <button onclick="addToInput('1')">1</button>
+            <button onclick="addToInput('2')">2</button>
+            <button onclick="addToInput('3')">3</button>
+            <button onclick="addToInput('+')">+</button>
+            <button onclick="addToInput('4')">4</button>
+            <button onclick="addToInput('5')">5</button>
+            <button onclick="addToInput('6')">6</button>
+            <button onclick="addToInput('-')">-</button>
+            <button onclick="addToInput('7')">7</button>
+            <button onclick="addToInput('8')">8</button>
+            <button onclick="addToInput('9')">9</button>
+            <button onclick="addToInput('*')">&times;</button>
+            <button class="clear" onclick="clearInput()">C</button>
+            <button onclick="addToInput('0')">0</button>
+            <button onclick="addToInput('.')">.</button>
+            <button onclick="addToInput('/')">&divide;</button>
+        </div>
+        <script>
+            let input = document.getElementById("input");
+            let prev = null;
+
+            function checker(val){
+                if(val == '+' || val == '-' || val == '*' || val == '/' || val == '.'){
+                    return true;
+                }
+                return false;
+            }
+
+            function addToInput(val){
+                if((checker(prev) == true || prev == null) && checker(val) == true){}
+                else{
+                    if(prev == '=' && val == '.'){}
+                    else{
+                        input.value += val;
+                        prev = val;
+                    }
+                }
+            }
+
+            function clearInput(){
+                input.value = ''
+                prev = null;
+            }
+
+            function evaluateInput(){
+                if(checker(prev) == true){}
+                else{
+                    input.value = eval(input.value);
+                    prev = '=';
+                }
+            }
+        </script>
+    </body>
+</html>
