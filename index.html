@@ -38,7 +38,7 @@
             }
 
             function addToInput(val){
-                if((checker(prev) == true || prev == null) && checker(val) == true){}
+                if(((checker(prev) == true || prev == null) && checker(val) == true) || ((input.value=="Infinity" || input.value == "NaN") && checker(val) == false)){}
                 else{
                     if(prev == '=' && val == '.'){}
                     else{
